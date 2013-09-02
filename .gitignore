@@ -1,0 +1,9 @@
+
+*.swp
+*~
+.project
+.DS_Store
+.idea
+config/route53.cfg
+config/boto.cfg
+config/mysql_secure_install_no_ask

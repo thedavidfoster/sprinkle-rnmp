@@ -1,7 +1,7 @@
 sprinkle-rnmp
 =============
 
-Sprinkle scripts for setting up ec2 or vagrant instance with rails, nginx, mysql and passenger.
+Sprinkle scripts for setting up ec2, vagrant or Rackspace Cloud instance with rails, nginx, mysql and passenger.
 
 Usage
 -----
@@ -12,7 +12,7 @@ Usage
 Config
 ------
 
-The *.example* files in the /config folder will have to be edited and renamed without the *.example* extension. 
+The *.example* files in the /config folder will have to be edited and renamed without the *.example* extension.
 
 ### boto.cfg
 

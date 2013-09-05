@@ -13,8 +13,11 @@ package :gem do
   requires :ruby
   description "Update Rubygems"
   runner 'gem update --system'
+  runner 'gem install rake bundler'
   verify do
     has_executable 'gem'
+    has_executable 'rake'
+    has_executable 'bundler'
   end
 end
 

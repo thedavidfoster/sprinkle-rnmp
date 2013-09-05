@@ -9,6 +9,15 @@ package :ruby do
   end
 end
 
+package :gem do
+  requires :ruby
+  description "Update Rubygems"
+  runner 'gem update --system'
+  verify do
+    has_executable 'gem'
+  end
+end
+
 package :ruby_dependencies do
   description "Ruby Build Dependencies"
   apt %w( zlib1g-dev libssl-dev libreadline6-dev openssh-server libyaml-dev libcurl4-openssl-dev libxslt-dev libxml2-dev)

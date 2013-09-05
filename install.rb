@@ -8,10 +8,10 @@ policy :setup, :roles => :app do
   requires :htop
   requires :build_essentials
   requires :ruby
+  requires :gem
   requires :nginx
   requires :mysql_secure
   requires :mysql_tune
-  requires :route53
 end
 
 deployment do

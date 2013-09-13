@@ -12,6 +12,9 @@ policy :setup, :roles => :app do
   requires :nginx
   requires :mysql_secure
   requires :mysql_tune
+  requires :git
+  requires :htop
+  requires :vim
 end
 
 deployment do

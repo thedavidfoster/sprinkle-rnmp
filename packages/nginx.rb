@@ -4,7 +4,7 @@ package :nginx, :provides => :webserver do
 
   runner "wget http://library.linode.com/assets/660-init-deb.sh", :sudo => true do
     post :install, "mv 660-init-deb.sh init-deb.sh"
-    post :install, "cat init-deb.sh | sed 's:/opt/:/usr/local/:' > nginx"
+    post :install, "cat init-deb.sh | sed 's:/opt/:/opt/:' > nginx"
     post :install, "rm init-deb.sh"
     post :install, "mv nginx /etc/init.d/nginx"
     post :install, "chmod +x /etc/init.d/nginx"
@@ -16,7 +16,7 @@ package :nginx, :provides => :webserver do
   end
 
   verify do
-    has_executable "/usr/local/nginx/sbin/nginx"
+    has_executable "/opt/nginx/sbin/nginx"
     has_file "/etc/init.d/nginx"
   end
 end
@@ -26,7 +26,7 @@ package :passenger, :provides => :appserver do
 
   gem 'passenger' do
     # Install nginx and the module
-    post :install, "sudo passenger-install-nginx-module --auto --auto-download --prefix=/usr/local/nginx"
+    post :install, "sudo passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx"
   end
 
   verify do

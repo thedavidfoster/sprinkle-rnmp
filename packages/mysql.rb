@@ -10,7 +10,7 @@ package :mysql_secure do
 
   apt 'expect'
 
-  local_file = File.expand_path('../../config/mysql_secure_install_no_ask', __FILE__)
+  local_file = File.join(File.expand_path(File.dirname(__FILE__)),'../../config/mysql_secure_install_no_ask')
   remote_file = '/usr/local/mysql/scripts/mysql_secure_install_no_ask'
   transfer local_file, remote_file, :sudo => true do
     pre :install, 'mkdir -p /usr/local/mysql/scripts'

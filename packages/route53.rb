@@ -5,7 +5,7 @@ end
 package :cli53 do
   runner 'pip install cli53', :sudo => true
 
-  local_file = File.expand_path('../../config/boto.cfg', __FILE__)
+  local_file = File.join(File.dirname(File.expand_path(__FILE__)),"..","config","boto.cfg")
   remote_file = '/etc/boto.cfg'
   transfer local_file, remote_file, :sudo => true do
     post :install, 'chmod 600 /etc/boto.cfg'
@@ -16,7 +16,7 @@ package :route53 do
   requires :pythonpip
   requires :cli53
 
-  local_file = File.expand_path('../../config/route53.cfg', __FILE__)
+  local_file = File.join(File.dirname(File.expand_path(__FILE__)),"..","config","route53.cfg")
   remote_file = '/etc/route53/config'
   transfer local_file, remote_file, :sudo => true do
     pre :install, 'mkdir /etc/route53'
